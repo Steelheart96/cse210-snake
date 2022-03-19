@@ -1,10 +1,6 @@
-# cse210-05
+# cse210-snake
 Weeks 9 and 10
 
-Eric Woll - Steelheart96 * Character, trails, collision, Player Handler, Tail Handler, Main Handler
+Eric W.
 
-Steven Buechele - sbuec: input, video,
-
-
-Class functions:
-  display points, director class, actor, character, trail,
+This is a snake game where one player tries to get the other player to crash into their trail. This game goes until a player reaches 3 points.
