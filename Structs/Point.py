@@ -12,7 +12,7 @@ class Point:
         self.pos_y = pos_y
 
     def __repr__(self) -> str:
-        return f'Point("{self.pos_x}", "{self.pos_y}")'
+        return f'Point({self.pos_x}, {self.pos_y})'
     
     def __str__(self) -> str:
         return f'({self.pos_x}, {self.pos_y})'

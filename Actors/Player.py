@@ -1,6 +1,5 @@
-from Actors.Actor import Actor
-from Structs.Window import Window
-from Structs.Texture import String
+from Actors import Actor
+from Structs import String, Window
 
 
 class Player(Actor):

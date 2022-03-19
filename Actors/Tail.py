@@ -1,10 +1,5 @@
-from Actors.Player import Player
-from Actors.Actor import Actor
-from Actors.Collision import Collision
-from Actors.Segments import Segment
-from Structs.Texture import String
-from Structs.Window import Window
-from Actors.Load import Load
+from Actors import Player, Actor, Collision, Segment, Load
+from Structs import String, Window
 
 class Tail(Actor):
     '''

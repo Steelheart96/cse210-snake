@@ -1,5 +1,5 @@
 from Handlers.Handler import Handler
-from Actors.Player import Player
+from Actors import Player
 from Movement.KeyboardInput import KeyInput
 
 class PlayerHandler(Handler):

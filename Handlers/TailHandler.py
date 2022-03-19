@@ -1,5 +1,5 @@
 from Handlers.Handler import Handler
-from Actors.Tail import Tail
+from Actors import Tail
 
 class TailHandler(Handler):
     '''

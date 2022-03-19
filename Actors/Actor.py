@@ -1,5 +1,4 @@
-from Structs.Texture import String
-from Structs.Window import Window
+from Structs import String, Window
 from Actors.Load import Load
 
 class Actor:

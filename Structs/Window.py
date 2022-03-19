@@ -27,7 +27,7 @@ class Window:
         return self.width, self.height, self.caption
     
     def __repr__(self) -> str:
-        return f'Window("{self.height}", "{self.width}", "{self.caption}", "{self.fps_cap}")'
+        return f'Window({self.height}, {self.width}, "{self.caption}", {self.fps_cap})'
     
     def __str__(self) -> str:
-        return f'({self.height}, {self.width}, {self.caption}, {self.fps_cap})'
+        return f'({self.height}, {self.width}, "{self.caption}", {self.fps_cap})'
