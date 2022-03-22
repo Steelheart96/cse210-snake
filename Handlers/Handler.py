@@ -42,15 +42,22 @@ class Handler:
         - name (str): The name of the object going into the Handler
         - setup_info (list): All of the setup information that the object going into the Handler needs for setup
         '''
-        pass
+        raise NotImplementedError('load is not implemented')
     
     def draw(self):
         '''
         Description: Default draw function that draws on screen
         '''
-        pass
+        raise NotImplementedError('draw is not implemented')
 
     def update(self):
         '''
         Description: Default update function that updates the objects on screen.
         '''
+        raise NotImplementedError('update is not implemented')
+    
+    def reset(self):
+        '''
+        Description: Default reset function that resets the objects on screen.
+        '''
+        raise NotImplementedError('reset is not implemented')

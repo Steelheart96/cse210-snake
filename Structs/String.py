@@ -10,13 +10,16 @@ class String:
     - color (pr.Color): Text font color
     '''
     
-    def __init__(self, character: str, font_size: int, color: Color):
-        self.character = character
+    def __init__(self, string: str, font_size: int, color: Color):
+        self.string = string
         self.font_size = font_size
         self.color = color
+
+    def copy(self):
+        return String(self.string, self.font_size, self.color)
     
     def __repr__(self) -> str:
-        return f'String("{self.character}", {self.font_size}, Color({self.color}))'
+        return f'String("{self.string}", {self.font_size}, Color({self.color}))'
     
     def __str__(self) -> str:
-        return f'("{self.character}", {self.font_size}, {self.color})'
+        return f'("{self.string}", {self.font_size}, {self.color})'

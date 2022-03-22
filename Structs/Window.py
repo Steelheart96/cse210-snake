@@ -25,6 +25,9 @@ class Window:
         - caption (str): Program window caption
         '''
         return self.width, self.height, self.caption
+
+    def copy(self):
+        return Window(self.height, self.width, self.caption, self.fps_cap)
     
     def __repr__(self) -> str:
         return f'Window({self.height}, {self.width}, "{self.caption}", {self.fps_cap})'

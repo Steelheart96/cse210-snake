@@ -23,9 +23,10 @@ class PlayerHandler(Handler):
             player_info[0].draw()
     
     def update(self) -> None:
-        '''
-        Description: Updates the player's movement direction.
-        '''
         for player_info in self._input.values():
             KeyInput.update_direction(player_info[0])
             KeyInput.update_player_position(player_info[0])
+    
+    def reset(self):
+        for player_info in self._input.values():
+            player_info[0].reset()
