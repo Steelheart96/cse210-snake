@@ -11,6 +11,9 @@ class Point:
         self.pos_x = pos_x
         self.pos_y = pos_y
 
+    def copy(self):
+        return Point(self.pos_x, self.pos_y)
+
     def __repr__(self) -> str:
         return f'Point({self.pos_x}, {self.pos_y})'
     

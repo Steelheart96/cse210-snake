@@ -85,3 +85,9 @@ class Tail(Actor):
         for segment in self._segments:
             if self._segments.index(segment) != 0:
                 Load.draw_rectangle(segment)
+    
+    def reset(self):
+        '''
+        Description: Removed all Tail Segments from the screen.
+        '''
+        self.set_up()

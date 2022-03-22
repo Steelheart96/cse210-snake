@@ -21,7 +21,7 @@ class Actor:
         
         Uses: self.display_char (Character)
         '''
-        self.texture = Load.text_to_texture(self.display_char.character, self.display_char.font_size, self.display_char.color)
+        self.texture = Load.text_to_texture(self.display_char.string, self.display_char.font_size, self.display_char.color)
 
     def draw(self):
         '''

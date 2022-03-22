@@ -34,3 +34,7 @@ class TailHandler(Handler):
     def update(self):
         for tail_info in self._input.values():
             tail_info[0].update_tail()
+    
+    def reset(self):
+        for tail_info in self._input.values():
+            tail_info[0].reset()
