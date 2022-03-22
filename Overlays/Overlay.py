@@ -1,8 +1,7 @@
 from Actors import Player
 from Structs import String, Window, Point
-import pyray as pr
-
 from Tools.Tools import Tools
+import pyray as pr
 
 class Overlay:
     '''
@@ -20,7 +19,7 @@ class Overlay:
         self.width = width
         self.height = height
         self.background_color = background_color
-        self.header_String = header
+        self.header = header
         self.player1 = player1
         self.player2 = player2
         self.position = Tools.calculate_center(self.window.width, self.window.height, self.width, self.height)
@@ -32,22 +31,21 @@ class Overlay:
         pr.draw_rectangle(self.position.pos_x, self.position.pos_y, self.width, self.height, self.background_color)
         pr.draw_rectangle_lines(self.position.pos_x, self.position.pos_y, self.width, self.height, pr.GRAY)
 
-    def header_setup(self):
+    def find_header_attributes(self):
         '''
         Description: Sets up header text and converts header text to a PositionedString.
         '''
-        self.header_length = Tools.get_text_length(self.header_String.string, self.header_String.font_size)
+        self.header_length = Tools.get_text_length(self.header.string, self.header.font_size)
         self.header_position = Point(self.width // 2 - self.header_length // 4 + self.position.pos_x, self.height // 4 + self.position.pos_y)
-        self.header = Tools.convert_to_positioned(self.header_String.string, self.header_String.font_size, self.header_String.color, self.header_position)
     
-    def winner_setup(self):
+    def find_winner_attributes(self):
         '''
         Description: Sets up winner text and sets it as a PositionedString.
         '''
         self.winner_font_size = self.header.font_size // 2
         self.winner_length = Tools.get_text_length(self.winner_text, self.winner_font_size)
         self.winner_position = Point(self.width // 2 - self.winner_length // 4 + self.position.pos_x, self.height // 4 * 2 + self.position.pos_y)
-        self.winner = Tools.convert_to_positioned(self.winner_text, self.winner_font_size, pr.YELLOW, self.winner_position)
+        self.winner_color = pr.YELLOW
 
     def score_setup(self):
         '''
@@ -55,8 +53,7 @@ class Overlay:
         '''
         self.create_score_strings()
         self.find_score_attributes()
-        self.p1_score = Tools.convert_to_positioned(self.p1_score_string, self.score_font_size, pr.RED, self.p1_score_position)
-        self.p2_score = Tools.convert_to_positioned(self.p2_score_string, self.score_font_size, pr.RED, self.p2_score_position)
+        self.p_score_color = pr.RED
 
     def create_score_strings(self):
         '''
@@ -79,18 +76,18 @@ class Overlay:
         '''
         Description: Sets up all of the text for the Game End Overlay.
         '''
-        self.header_setup()
-        self.winner_setup()
+        self.find_header_attributes()
+        self.find_winner_attributes()
         self.score_setup()
 
     def draw_text(self):
         '''
         Description: Draws all of the text for the Game End Overlay.
         '''
-        pr.draw_text(self.header.string, self.header.position.pos_x, self.header.position.pos_y, self.header.font_size, self.header.color)
-        pr.draw_text(self.winner.string, self.winner.position.pos_x, self.winner.position.pos_y, self.winner.font_size, self.winner.color)
-        pr.draw_text(self.p1_score.string, self.p1_score.position.pos_x, self.p1_score.position.pos_y, self.p1_score.font_size, self.p1_score.color)
-        pr.draw_text(self.p2_score.string, self.p2_score.position.pos_x, self.p2_score.position.pos_y, self.p2_score.font_size, self.p2_score.color)
+        pr.draw_text(self.header.string, self.header_position.pos_x, self.header_position.pos_y, self.header.font_size, self.header.color)
+        pr.draw_text(self.winner_text, self.winner_position.pos_x, self.winner_position.pos_y, self.winner_font_size, self.winner_color)
+        pr.draw_text(self.p1_score_string, self.p1_score_position.pos_x, self.p1_score_position.pos_y, self.score_font_size, self.p_score_color)
+        pr.draw_text(self.p2_score_string, self.p2_score_position.pos_x, self.p2_score_position.pos_y, self.score_font_size, self.p_score_color)
     
     def draw(self):
         '''

@@ -161,9 +161,6 @@ class Game:
             pr.begin_drawing()
             pr.clear_background(pr.BLACK)
 
-            self.player_2_points.draw_points()
-            self.player_1_points.draw_points()
-
             # draw onscreen
             self.tails.draw()
             self.players.draw()
@@ -177,11 +174,17 @@ class Game:
                 self.recap_length -= 1
         
         if run and not (self.p1.player_points <= 3 or self.p2.player_points <= 3):
-            self.close_window()
+            return False
         else:
             return True
     
     def game_end(self) -> bool:
+        '''
+        Description: The Game end loop.
+
+        Returns:
+        - bool: Whether or not entire program continues
+        '''
         self.recap_length = self.set_recap_length(self.end_recap_length)
         self.end_overlay.find_winner()
 
@@ -189,9 +192,6 @@ class Game:
         while not pr.window_should_close() and run:
             pr.begin_drawing()
             pr.clear_background(pr.BLACK)
-
-            self.player_2_points.draw_points()
-            self.player_1_points.draw_points()
 
             # draw onscreen
             self.tails.draw()
